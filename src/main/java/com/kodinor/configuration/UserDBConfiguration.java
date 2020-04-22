@@ -37,6 +37,7 @@ public class UserDBConfiguration {
 		return userDSProperties.initializeDataSourceBuilder().build();
 	}
 	
+	@Primary
 	@Bean
 	public LocalContainerEntityManagerFactoryBean userDSEmFactory(@Qualifier("userDS") DataSource userDS, EntityManagerFactoryBuilder builder) {
 		return builder.dataSource(userDS).packages(User.class).build();
